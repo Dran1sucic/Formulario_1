@@ -1,0 +1,286 @@
+# Formulario_1
+Prueba de formulario y Base de datos 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUMBE – Esencia Tour</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Roboto, sans-serif;
+            background-color: #65946C;
+            background-image: url(https://i.pinimg.com/736x/46/b8/28/46b82849f48292a1d182650acee3c64f.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .formulario {
+            width: 90%;
+            margin: 20px auto;
+            background-color: #B5C7B1;
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #F2FAF3;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #48704E;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 90%;
+            display: block;
+            margin: 15px auto;
+        }
+
+        .controles {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            background: linear-gradient(90deg, #47614F, #86CF9B);
+            transition: transform 0.2s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        header {
+            color: #A9CCAF;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            color: #A9CCAF;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #C8E6CD;
+        }
+
+        footer {
+            color: #F2FAF3;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>HUMBE</h1>
+</header>
+
+<nav>
+    <a href="">INICIO</a>
+    <a href="">MÚSICA</a>
+    <a href="">BOLETOS</a>
+</nav>
+
+<h1>Merch Oficial</h1>
+
+<canvas id="miCanvas" width="300" height="300"></canvas>
+
+<div class="controles">
+    <button id="btnPlayera">Playera</button>
+    <button id="btnHoodie">Hoodie</button>
+    <button id="btnGorra">Gorra</button>
+</div>
+<script>
+	fetch("https://script.google.com/macros/s/AKfycbzioeQH3losPbqOLUuCDFwrgIgttxMhti7gX2euNyI_P86i7zC8IQxZjM5iL2ohXRKZ/exec")
+    redirect:"follow",
+    method:"POST",
+    body:"FormDataString"
+    headers:{"content-type":"Text/Plain;charset=utf-8"
+    }
+    
+</script>
+<script>
+
+const canvas = document.getElementById('miCanvas');
+const context = canvas.getContext('2d');
+
+const btnPlayera = document.getElementById("btnPlayera");
+const btnHoodie = document.getElementById("btnHoodie");
+const btnGorra = document.getElementById("btnGorra");
+
+const urlPlayera = "https://i-p.rmcdn.net/64fe57e0f2d4f700362f4312/4786338/image-f82c343c-4866-4723-b0ea-884d987d069f.png?w=1034&e=webp&nll=true";
+const urlHoodie  = "https://i-p.rmcdn.net/65e184aa1839c5006df304c5/4651802/image-ef8b484c-dc93-4ba6-95a2-ba739c71adb0.png?w=1034&e=webp&nll=true";
+const urlGorra   = "https://i-p.rmcdn.net/65e184aa1839c5006df304c5/4651802/image-4c3226bb-645b-4fec-9774-a4a291746638.png?w=1034&e=webp&nll=true";
+
+function cargarImagen(url) {
+    const img = new Image();
+    img.src = url;
+
+    img.onload = () => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(img, 0, 0, canvas.width, canvas.height);
+    };
+
+    img.onerror = () => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = "#ff6b6b";
+        context.font = "18px Poppins";
+        context.fillText("Error al cargar la imagen.", 20, 40);
+    };
+}
+
+btnPlayera.addEventListener("click", () => cargarImagen(urlPlayera));
+btnHoodie.addEventListener("click", () => cargarImagen(urlHoodie));
+btnGorra.addEventListener("click", () => cargarImagen(urlGorra));
+
+context.font = "20px Arial";
+context.textAlign = "center";
+context.fillText("Selecciona una prenda", canvas.width / 2, canvas.height / 2);
+
+</script>
+
+<br><br><br>
+
+<div class="formulario">
+
+<form>  
+<fieldset>
+    <legend>Información de Contacto</legend>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="usuario_nombre" placeholder="Nombre (s)">
+
+    <input type="text" id="apP" name="usuario_apellido" placeholder="Apellido Paterno">
+    <input type="text" id="apM" name="usuario_apellido" placeholder="Apellido Materno">
+
+    <br><br>
+
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+
+    <br><br>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="12-223-2987" required>
+</fieldset>
+
+<br><br>
+
+<fieldset>
+    <legend>Envío</legend>
+
+    <label for="street">Calle</label>
+    <input type="text" id="street" name="calle" placeholder="Usa números y letras">
+
+    <label for="num">Número interior/exterior</label>
+    <input type="text" id="num" name="numero" placeholder="Usa números y letras">
+
+    <br>
+
+    <label for="Colonia">Colonia</label>
+    <input type="text" id="Colonia" name="Colonia" placeholder="Usa números y letras">
+
+    <label for="City">Ciudad</label>
+    <input type="text" id="City" name="Ciudad" placeholder="Usa números y letras">
+
+    <br>
+
+    <label for="Zip">Código postal</label>
+    <input type="text" id="Zip" name="Codigo" placeholder="Usa números y letras">
+</fieldset>
+
+<br><br>
+
+<label for="Notas">Comentarios o Notas Extra:</label>
+<textarea id="Notas" name="usuario_mensaje" rows="4" cols="50"></textarea>
+
+<br><br>
+
+<label>¿Deseas factura?</label><br>
+<input type="radio" name="factura" value="si"> SI
+<input type="radio" name="factura" value="no"> NO
+
+<br><br>
+
+<fieldset>
+    <legend>Facturar</legend>
+
+    <label for="RFC">RFC</label>
+    <input type="text" id="RFC" name="RFC" placeholder="Usa números y letras">
+
+    <label for="razon">Nombre o razón social</label>
+    <input type="text" id="razon" name="razon" placeholder="Usa números y letras">
+</fieldset>
+
+<br><br>
+
+<label>Método de pago</label><br>
+<input type="radio" name="pago" value="tarjeta"> Tarjeta
+<input type="radio" name="pago" value="paypal"> PayPal
+<input type="radio" name="pago" value="transferencia"> Transferencia
+
+<br><br>
+
+<fieldset>
+    <legend>Confirmaciones</legend>
+
+    <label>Acepto términos y condiciones</label><br>
+    <input type="radio" name="tyc" value="si"> SI
+    <input type="radio" name="tyc" value="no"> NO
+
+    <br>
+
+    <label>Confirmo que mis datos son correctos</label><br>
+    <input type="radio" name="datos" value="si"> SI
+    <input type="radio" name="datos" value="no"> NO
+
+    <br>
+
+    <label>Acepto política de privacidad</label><br>
+    <input type="radio" name="privacidad" value="si"> SI
+    <input type="radio" name="privacidad" value="no"> NO
+
+</fieldset>
+
+<br><br>
+
+<button type="submit">Enviar Formulario</button>
+
+</form>
+</div>
+
+<footer>
+    <p>Tienda Esencia Tour – Desarrollo de páginas web.</p>
+</footer>
+
+</body>
+</html>
