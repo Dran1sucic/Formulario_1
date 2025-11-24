@@ -117,15 +117,7 @@
     <button id="btnHoodie">Hoodie</button>
     <button id="btnGorra">Gorra</button>
 </div>
-<script>
-	fetch("https://script.google.com/macros/s/AKfycbzioeQH3losPbqOLUuCDFwrgIgttxMhti7gX2euNyI_P86i7zC8IQxZjM5iL2ohXRKZ/exec")
-    redirect:"follow",
-    method:"POST",
-    body:"FormDataString"
-    headers:{"content-type":"Text/Plain;charset=utf-8"
-    }
-    
-</script>
+
 <script>
 
 const canvas = document.getElementById('miCanvas');
@@ -170,7 +162,7 @@ context.fillText("Selecciona una prenda", canvas.width / 2, canvas.height / 2);
 
 <div class="formulario">
 
-<form>  
+<form method="POST" action="https://script.google.com/macros/s/AKfycbwGlAibvwkoIUxRWMWzIxwuAjcg7K1f6iTTzlcC8qvo4CE5rSpjnvn1seBjBn66cvcR/exec>  
 <fieldset>
     <legend>Información de Contacto</legend>
 
