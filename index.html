@@ -162,15 +162,15 @@ context.fillText("Selecciona una prenda", canvas.width / 2, canvas.height / 2);
 
 <div class="formulario">
 
-<form method="POST" action="https://script.google.com/macros/s/AKfycbwGlAibvwkoIUxRWMWzIxwuAjcg7K1f6iTTzlcC8qvo4CE5rSpjnvn1seBjBn66cvcR/exec">  
+<form method="POST" action="https://script.google.com/macros/s/AKfycbwGlAibvwkoIUxRWMWzIxwuAjcg7K1f6iTTzlcC8qvo4CE5rSpjnvn1seBjBn66cvcR/exec">
 <fieldset>
     <legend>Información de Contacto</legend>
 
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="usuario_nombre" placeholder="Nombre (s)">
 
-    <input type="text" id="apP" name="usuario_apellido" placeholder="Apellido Paterno">
-    <input type="text" id="apM" name="usuario_apellido" placeholder="Apellido Materno">
+    <input type="text" id="apP" name="usuario_apellido_paterno" placeholder="Apellido Paterno">
+    <input type="text" id="apM" name="usuario_apellido_materno" placeholder="Apellido Materno">
 
     <br><br>
 
@@ -258,6 +258,15 @@ context.fillText("Selecciona una prenda", canvas.width / 2, canvas.height / 2);
     <label>Acepto política de privacidad</label><br>
     <input type="radio" name="privacidad" value="si"> SI
     <input type="radio" name="privacidad" value="no"> NO
+
+</fieldset>
+
+<br><br>
+
+<button type="submit">Enviar Formulario</button>
+
+</form>
+</div>
 
 </fieldset>
 
